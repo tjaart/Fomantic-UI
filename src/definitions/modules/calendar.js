@@ -841,6 +841,9 @@ $.fn.calendar = function(parameters) {
             }
             if (!(date instanceof Date)) {
               date = parser.date('' + date, settings);
+              if (!date || date === null) {
+                console.error('Invalid date format for calendar');
+              }
             }
             if (isNaN(date.getTime())) {
               return undefined;
